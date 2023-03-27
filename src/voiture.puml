@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Compteur {
+  -vitesse: double
+  -kmParcourus: double
+
+  +Compteur()
+  +incrementerKilometrage(km: double): void
+}
+
+class Reservoir {
+  -capacite: double
+  -contenu: double
+
+  +Reservoir(capacite: double)
+  +consommer(litres: double): void
+  +faireLePlein(): void
+}
+
+
+class Voiture {
+  -numImmatriculation: String
+  -puissance: int
+  -cout: double
+  -nbPleins: int
+  -nbDepannages: int
+  -compteur: Compteur
+  -reservoir: Reservoir
+  -chevaux: double
+
+  +Voiture(numImmatriculation: String, puissance: int)
+  +calculerConsommation(vitesse: double): double
+  +simulerTrajet(distance: double, vitesse: double): void
+}
+
+Voiture <-- Compteur
+Voiture <-- Reservoir
+
+
+@enduml
